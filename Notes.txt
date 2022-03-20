@@ -1,0 +1,48 @@
+Functional Interface:
+	- An interface with ONLY one abstract method.
+	- The interface can have any number of default and static methods.
+
+Lambda Expression:
+	Example:
+		- Definition of Lambda expression:
+			- InterfaceName objectName = () -> {//Implementation};
+		- Calling of Lambda expression:
+			- objectName.functionNameInInterface(//arguments if any);
+	
+	Applications:
+	- Before Java 8 we need to create inner classes in function to pass interface method implementations.
+	- For example if some function accepts an argument of Runnable Interface, then:
+		- Either we pass the object of some implementation class which have concrete definition of run() method.
+		- Or we create an inner class when calling the function and send that as the function argument.
+	- With Java 8, instead of creating inner classes we can directly write the implementation and
+	  the compiler will automatically understand the argument type and the return type referring to the function argument type.
+	- For example:
+		- calling of function: process(() -> System.out.println("Inside run method"));
+		- definition of function: private static void process(Runnable r){}
+	
+	Advantages:
+	- Type inference
+		- No need to mention return types, argument types while using LambdaExpression. 
+		  It will automatically infer the type from method declaration in respective interface.
+	- Predefined interface use that comes with JDK
+		- There are many predefined generic interfaces that comes with Java 8, 
+		  that serves the purpose of many common scenarios.
+		  For example, 
+		  - Predicate interface takes an Integer type argument and returns nothing.
+		  - BiConsumer<Integer, Integer> takes two integers and returns nothing.
+		So, if we can use these predefined interfaces then we don't even need to create the interfaces 
+		on our own just to leverage the use of lambda expressions.
+	- We can use wrapping of lambda expressions to enhance method functionalities 
+	  like performing exception handling, etc. there.
+
+Closures:
+	- This is the concept before Java 8 also.
+	- When using inner class to pass as an argument while calling some method from current method,
+	  then we can use any current method variable to pass as the argument to the 
+	  implementation of abstract function of the Interface Type argument.
+	- But before Java 8 we need to declare this variable as final.
+	- In Java 8, we don't need to declare this value as final but also we cannot even change 
+	  the value in the inner class implementation or in the calling method.
+
+
+	
